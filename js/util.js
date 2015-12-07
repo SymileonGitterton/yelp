@@ -1,7 +1,3 @@
-(function(window, document, undefined) {
-  var Util = {};
+var Util = {};
 
-  // TODO
-
-  window.Util = Util;
-})(this, this.document);
+// TODO
