@@ -1,8 +1,8 @@
-(function(window, document, undefined) {
+(function() {
 
   /* MainView handles all the logic. */
   $(document).ready(function() {
     MainView.render($(document.body));
   });
 
-})(this, this.document);
+})();

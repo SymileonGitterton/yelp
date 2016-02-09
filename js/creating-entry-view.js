@@ -1,13 +1,13 @@
-(function(window, document, undefined) {
+(function() {
 
   var CreatingEntryView = {};
 
   /* Renders a view to allow the user to create an entry. Requires the $entry
-  * element. */
+   * element. */
   CreatingEntryView.render = function($entry) {
     // TODO
   };
 
   window.CreatingEntryView = CreatingEntryView;
 
-})(this, this.document);
+})();

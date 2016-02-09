@@ -1,4 +1,4 @@
-(function(window, document, undefined) {
+(function() {
 
   var EntryModel = {};
 
@@ -47,4 +47,4 @@
 
   window.EntryModel = EntryModel;
 
-})(this, this.document);
+})();

@@ -1,4 +1,4 @@
-(function(window, document, undefined) {
+(function() {
 
   var MainView = {};
 
@@ -10,4 +10,4 @@
 
   window.MainView = MainView;
 
-})(this, this.document);
+})();

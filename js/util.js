@@ -1,3 +1,6 @@
-var Util = {};
+(function() {
 
-// TODO
+  var Util = {};
+  // TODO for any common code across files
+
+})();

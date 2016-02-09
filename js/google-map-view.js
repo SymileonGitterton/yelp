@@ -1,4 +1,4 @@
-(function(window, document, undefined) {
+(function() {
 
   var GoogleMapView = {};
 
@@ -13,4 +13,4 @@
 
   window.GoogleMapView = GoogleMapView;
 
-})(this, this.document);
+})();
