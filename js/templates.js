@@ -43,7 +43,7 @@
 
       description = tag('textarea', {name: 'description'},
                         activeEntryData.description);
-      actions = tag('button', {class: 'teal update'}, 'Update');
+      actions = [tag('button', {class: 'teal update'}, 'Update')];
     } else if (options.creating) {
       // able to set name, address, and description
       name = tag('input', {
@@ -67,7 +67,9 @@
       description = tag('span', {}, activeEntryData.description);
       actions = [
         tag('button', {class: 'green new'}, 'New'),
+        ' ',
         tag('button', {class: 'teal edit'}, 'Edit'),
+        ' ',
         tag('button', {class: 'red delete'}, 'Delete')
       ];
 
@@ -86,13 +88,13 @@
     // for displaying server errors
     actions.push(tag('div', {class: 'error'}, []));
 
-    return tag('div', [
+    return tag('div', {}, [
       tag('div', {class: 'map'}, []),
       tag('div', {class: 'feature'}, [
         'Welcome to',
         tag('br', '', []),
 
-        entryName,
+        name,
         dropdown,
 
         tag('br', '', []),

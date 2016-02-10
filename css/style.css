@@ -84,6 +84,15 @@ h1 a {
   text-align: center;
 }
 
+.dropdown button {
+  width: 40px;
+  height: 30px;
+  background: #FAFAFA url(../images/arrow-down.png) no-repeat;
+  background-size: 22px 19px;
+  background-position: center;
+  vertical-align: middle;
+}
+
 .actions button {
   margin-left: 5px;
 }

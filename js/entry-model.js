@@ -2,7 +2,7 @@
 
   var EntryModel = {};
 
-  var ENTRIES_URL = 'http://callbackjs.me:4155/entries';
+  var ENTRIES_URL = '/entries';
   var STATUS_OK = 200;
 
   /* Loads all entries from the server.
