@@ -12,8 +12,29 @@
    *  entries -- an array of entries
    */
   EntryModel.loadAll = function(callback) {
-    // TODO
+    // 1) create an XMLHttpRequest object
+    var request = new XMLHttpRequest();
+    
+    // 2) Handle the 'load' event with this code:
+    request.addEventListener('load', function() {                 // callback for when load completes from server
+            if (request.status != STATUS_OK) {
+              callback(request.responseText);
+            } else {
+              callback(null,request.responseText);
+            }
+        });
+
+    // 3) open a URL with the correct request type
+    request.open('GET', ENTRIES_URL);
+
+    // 4) set the content-type header, if this is a POST
+
+    // 5) send the request to the server, with parameters if a POST
+    request.send(); 
+    // done; exit and await 'load' callback
   };
+
+
 
   /* Adds the given entry to the list of entries. The entry must *not* have
    * an id associated with it.
@@ -23,8 +44,31 @@
    *  entry -- the entry added, with an id attribute
    */
   EntryModel.add = function(entry, callback) {
-    // TODO
+    // 1) create an XMLHttpRequest object
+    var request = new XMLHttpRequest();
+    
+    // 2) Handle the 'load' event with this code:
+    request.addEventListener('load', function() {                 // callback for when load completes from server
+            if (request.status != STATUS_OK) {
+              callback(request.responseText);
+            } else {
+              callback(null,request.responseText);
+            }
+        });
+
+    // 3) open a URL with the correct request type
+    request.open('POST', ENTRIES_URL);
+
+    // 4) set the content-type header, if this is a POST
+    request.setRequestHeader("Content-type", "application/json");
+
+    // 5) send the request to the server, with parameters if a POST
+    request.send(JSON.stringify(entry)); 
+
+    // done; exit and await 'load' callback
   };
+
+
 
   /* Updates the given entry. The entry must have an id attribute that
    * identifies it.
@@ -33,7 +77,28 @@
    *  error -- the error that occurred or NULL if no error occurred
    */
   EntryModel.update = function(entry, callback) {
-    // TODO
+    // 1) create an XMLHttpRequest object
+    var request = new XMLHttpRequest();
+    
+    // 2) Handle the 'load' event with this code:
+    request.addEventListener('load', function() {                 // callback for when load completes from server
+            if (request.status != STATUS_OK) {
+              callback(request.responseText);
+            } else {
+              callback(null,request.responseText);
+            }
+        });
+
+    // 3) open a URL with the correct request type
+    request.open('POST', ENTRIES_URL+"/"+entry.id);
+
+    // 4) set the content-type header, if this is a POST
+    request.setRequestHeader("Content-type", "application/json");
+
+    // 5) send the request to the server, with parameters if a POST
+    request.send(JSON.stringify(entry)); 
+
+    // done; exit and await 'load' callback
   };
 
   /* Deletes the entry with the given id.
@@ -42,7 +107,28 @@
    *  error -- the error that occurred or NULL if no error occurred
    */
   EntryModel.remove = function(id, callback) {
-    // TODO
+    // 1) create an XMLHttpRequest object
+    var request = new XMLHttpRequest();
+    
+    // 2) Handle the 'load' event with this code:
+    request.addEventListener('load', function() {                 // callback for when load completes from server
+            if (request.status != STATUS_OK) {
+              callback(request.responseText);
+            } else {
+              callback(null,request.responseText);
+            }
+        });
+
+    // 3) open a URL with the correct request type
+    request.open('POST', ENTRIES_URL+"/"+id+"/delete");
+
+    // 4) set the content-type header, if this is a POST
+    request.setRequestHeader("Content-type", "application/json");
+
+    // 5) send the request to the server, with parameters if a POST
+    request.send(); 
+
+    // done; exit and await 'load' callback
   };
 
   window.EntryModel = EntryModel;
