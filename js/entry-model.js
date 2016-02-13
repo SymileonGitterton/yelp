@@ -5,6 +5,21 @@
   var ENTRIES_URL = '/entries';
   var STATUS_OK = 200;
 
+
+
+  var clawback = function(error,entries) { 
+    console.log("I am the callback"); 
+    if(error) { 
+      console.log("ERROR! "+error); 
+    } else { 
+      EntryModel.allTheEntries = JSON.parse(entries);
+      console.log("entries: "); 
+      console.log(EntryModel.allTheEntries);
+    } 
+  };
+
+
+
   /* Loads all entries from the server.
    *
    * Calls: callback(error, entries)
@@ -131,6 +146,7 @@
     // done; exit and await 'load' callback
   };
 
+  EntryModel.allTheEntries = EntryModel.loadAll(clawback);
   window.EntryModel = EntryModel;
 
 })();
