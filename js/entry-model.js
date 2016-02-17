@@ -1,23 +1,9 @@
 (function() {
 
-  var EntryModel = {};
+  var EntryModel = {allTheEntries:[], operationPending:false};
 
   var ENTRIES_URL = '/entries';
   var STATUS_OK = 200;
-
-
-
-  var clawback = function(error,entries) { 
-    console.log("I am the callback"); 
-    if(error) { 
-      console.log("ERROR! "+error); 
-    } else { 
-      EntryModel.allTheEntries = JSON.parse(entries);
-      console.log("entries: "); 
-      console.log(EntryModel.allTheEntries);
-    } 
-  };
-
 
 
   /* Loads all entries from the server.
@@ -27,6 +13,8 @@
    *  entries -- an array of entries
    */
   EntryModel.loadAll = function(callback) {
+    EntryModel.operationPending = true;
+
     // 1) create an XMLHttpRequest object
     var request = new XMLHttpRequest();
     
@@ -130,7 +118,7 @@
             if (request.status != STATUS_OK) {
               callback(request.responseText);
             } else {
-              callback(null,request.responseText);
+              callback(null);
             }
         });
 
@@ -146,7 +134,8 @@
     // done; exit and await 'load' callback
   };
 
-  EntryModel.allTheEntries = EntryModel.loadAll(clawback);
+
+  //EntryModel.loadAll(Util.clawback);  // shoiuld fill EntryModel.allTheEntries
   window.EntryModel = EntryModel;
 
 })();
