@@ -104,6 +104,20 @@
 
     			});	// end of eventListener for delete button
 
+
+			var dropdownSelect = document.querySelector('#entry').querySelector('div[class="feature"]').querySelector('div[class="dropdown"]').querySelector('select');
+			dropdownSelect.addEventListener('change', function() {
+						console.log("Perrin here, on dropdown!");
+						console.log("id "+dropdownSelect.value+" has been chosen");
+						console.log("EntryModel is");
+						console.log(EntryModel);
+						var theChosenOne = null;
+						for (var i=0;i<EntryModel.allTheEntries.length;i++)
+							if(EntryModel.allTheEntries[i].id === dropdownSelect.value)
+								theChosenOne = EntryModel.allTheEntries[i];
+						EntryView.render($entry,theChosenOne);
+					}); //end of callback for dropdown
+
   			}	// end of good entries fetched
 
   		});	// end of callback given to loadAll
