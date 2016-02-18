@@ -1,6 +1,7 @@
 (function() {
 
-  var EntryModel = {allTheEntries:[], operationPending:false};
+  //var EntryModel = {allTheEntries:[], operationPending:false};
+  var EntryModel = {};
 
   var ENTRIES_URL = '/entries';
   var STATUS_OK = 200;
@@ -13,8 +14,6 @@
    *  entries -- an array of entries
    */
   EntryModel.loadAll = function(callback) {
-    EntryModel.operationPending = true;
-
     // 1) create an XMLHttpRequest object
     var request = new XMLHttpRequest();
     

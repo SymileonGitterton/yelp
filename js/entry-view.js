@@ -24,8 +24,6 @@
     	} else {	// no error, entries were fetched ok
       		EntryModel.allTheEntries = JSON.parse(entries);
       		console.log("loadAll apparently went well and returned "+EntryModel.allTheEntries.length+" entries...")
-      		console.log(entries)
-      		console.log("EntryModel.allTheEntries is now...");
       		console.log(EntryModel.allTheEntries);
     		if (EntryModel.allTheEntries.length === 0) {
     			CreatingEntryView.render($entry)				// 0 entries, so need the create screen
@@ -117,6 +115,10 @@
 								theChosenOne = EntryModel.allTheEntries[i];
 						EntryView.render($entry,theChosenOne);
 					}); //end of callback for dropdown
+
+			//var mapdiv = document.querySelector('#entry').querySelector('div[class="map"]');
+			var $mapdiv = $(document.body).find('.map');
+			GoogleMapView.render($mapdiv,activeEntryData);
 
   			}	// end of good entries fetched
 

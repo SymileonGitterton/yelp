@@ -2,7 +2,7 @@
 
   var Util = {};
 
-  
+  /*
   Util.clawbackLoadAll = function(error,entries) { 
     console.log("I am the loadAll callback"); 
     if(error) { 
@@ -13,7 +13,7 @@
       console.log(EntryModel.allTheEntries);
     } 
   };
-
+*/
 
 
 
