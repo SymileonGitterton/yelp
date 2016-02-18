@@ -10,8 +10,8 @@
     console.log("EntryView.render() has been invoked for activeEntry...");
     console.log(activeEntryData);
 
-	console.log("EntryModel at this time is ");
-	console.log(EntryModel);
+	console.log("EntryModel.allTheEntries at this time is ");
+	console.log(EntryModel.allTheEntries);
 
   	// attempt to pull all the data from the server
   	EntryModel.loadAll(function(error,entries) {
@@ -23,8 +23,9 @@
       		return;
     	} else {	// no error, entries were fetched ok
       		EntryModel.allTheEntries = JSON.parse(entries);
+      		console.log("loadAll apparently went well and returned "+EntryModel.allTheEntries.length+" entries...")
       		console.log(entries)
-      		console.log(EntryModel.allTheEntries.length+" entries have been fetched: "); 
+      		console.log("EntryModel.allTheEntries is now...");
       		console.log(EntryModel.allTheEntries);
     		if (EntryModel.allTheEntries.length === 0) {
     			CreatingEntryView.render($entry)				// 0 entries, so need the create screen
@@ -38,6 +39,8 @@
     							  		  activeEntryData:activeEntryData
      									};
     		var retval = Templates.renderEntry(optionsForRenderEntry);	// so render and show it
+    		console.log("arguments for render: ");
+    		console.log(optionsForRenderEntry);
     		console.log("rendered: ");
     		console.log(retval);
     		$entry.html(retval);	// stick it in the DOM
